@@ -1,0 +1,157 @@
+scalar Time
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  deleteStatus: Int!
+  rolesId: ID!
+}
+
+type Item {
+  id: ID!
+  typeId: ID!
+  lon: Float!
+  lat: Float!
+  brokenId: ID
+  rents: [Rent!]!
+  deleteStatus: Int
+}
+
+type UserSettings {
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+}
+
+type Permissions {
+  id: ID!
+  title: String!
+}
+
+type Roles_Permissions {
+  rolesId: ID!
+  permissionsId: ID!
+}
+
+type Role {
+  id: ID!
+  title: String!
+  desc: String!
+}
+
+type InputTypes {
+  id: ID!
+  name: String!
+  title: String!
+}
+
+type TypeNames {
+  name: String!
+}
+
+type Attributes {
+  id: ID!
+  value: String!
+}
+
+type InputList {
+  name: String!
+  attributes: [Attributes!]!
+}
+
+type Rent {
+  id: ID!
+  externalId: ID!
+  itemsId: Item!
+  usersId: ID!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  id: ID!
+  firstName: String
+  lastName: String
+}
+
+input UpdateAdminInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  rolesId: ID!
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  rolesId: ID!
+}
+
+input ChangePasswordInput {
+  id: ID!
+  password: String!
+}
+
+input CreateItemInput {
+  typeId: ID!
+  lon: Float!
+  lat: Float!
+  brokenId: ID
+}
+
+input UpdateItemInput {
+  id: ID!
+  typeId: ID
+  lon: Float
+  lat: Float
+  brokenId: ID
+}
+
+input LocationGenInput {
+  lonMin: Float!
+  lonMax: Float!
+  latMin: Float!
+  latMax: Float!
+}
+
+input CreateRentInput {
+  externalId: ID!
+  itemsId: ID!
+}
+
+type Query{
+  profileSettings:UserSettings!
+  userSettings(UserID:ID!):UserSettings!
+  getUsers:[User!]!
+  getItems:[Item!]!
+  getRoleNames:[Role!]!
+  getInputList:[InputList!]!
+  getRents:[Rent!]!
+}
+
+type Mutation{
+  login(Input: LoginInput!):String!
+  createUser(Input: CreateUserInput!):Boolean!
+  updateUser(Input: UpdateUserInput!):Boolean!
+  updateAdmin(Input: UpdateAdminInput!):Boolean!
+  deleteUser(UserID:ID!):Boolean!
+  activateUser(UserID:ID!):Boolean!
+  changePassword(Input: ChangePasswordInput!):Boolean!
+  createItem(Input: CreateItemInput!):Boolean!
+  updateItem(Input: UpdateItemInput!):Boolean!
+  deleteItem(ItemID: ID!):Boolean!
+  locationGen(Input: LocationGenInput!):Boolean!
+  deleteRent(RentID: ID!):Boolean!
+  createRent(Input: CreateRentInput!):Boolean!
+}

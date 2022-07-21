@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS "schema_migrations";
+DROP TABLE IF EXISTS "roles_permissions";
+DROP TABLE IF EXISTS "permissions";
+DROP TABLE IF EXISTS "rents";
+DROP TABLE IF EXISTS "items";
+DROP TABLE IF EXISTS "users";
+DROP TABLE IF EXISTS "roles";
+DROP TABLE IF EXISTS "inputs";
+DROP TABLE IF EXISTS "input_types";
