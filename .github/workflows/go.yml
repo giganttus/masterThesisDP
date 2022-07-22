@@ -22,3 +22,7 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      run: git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git origin/master:master
