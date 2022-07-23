@@ -20,9 +20,6 @@ jobs:
     - name: Build
       run: go build -v ./...
 
-    - name: Test
-      run: go test -v ./...
-
     - name: Deploy to Heroku
       uses: akhileshns/heroku-deploy@v3.12.12
       with:
