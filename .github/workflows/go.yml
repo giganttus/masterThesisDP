@@ -4,9 +4,7 @@ on:
   push:
     branches: [ "master" ]
 
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +17,10 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-
+      
+    - name: Run tests
+      run: go test -race -vet=off ./...
+      
     - name: Deploy to Heroku
       uses: akhileshns/heroku-deploy@v3.12.12
       with:
