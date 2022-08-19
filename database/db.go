@@ -7,7 +7,7 @@ import (
 
 func Connect() *pg.DB {
 
-	connStr := os.Getenv("DB_URL")
+	connStr := os.Getenv("DATABASE_URL")
 	opt, err := pg.ParseURL(connStr)
 	if err != nil {
 		panic(err)
