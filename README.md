@@ -1,29 +1,38 @@
-# README #
+# Hotel service API (GraphQL) #
+Live at: https://master-thesis-ci-cd.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Paste this token to section at bottom of the query window inside "REQUEST HEADERS", and You are ready to use service. 
 
-### What is this repository for? ###
+```
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiIxIiwiZXhwaXJlc19BdCI6IjIwMjItMDQtMjFUMTI6MDQ6MDMuMzY3MjE4MiswMjowMCIsImlzc3VlZEF0IjoxNjUwNDQ5MDQzfQ.5Rmy1KdyoJEsTrXOz0FhZpQy_AunAlQk0UkYSlCoBk4"
+}
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+# Query and Mutation example #
+```
+query GetItems {
+  getItems{
+    id,
+    typeId,
+    lon,
+    lat,
+    brokenId,
+    deleteStatus
+  }
+}
+```
 
-### How do I get set up? ###
+```
+mutation CreateItem {
+  createItem(Input: 
+    {
+      typeId: 2, 
+      lon: 2.6, 
+      lat: 3.2, 
+      brokenId: 1
+    })
+}
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
