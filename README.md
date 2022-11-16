@@ -1,5 +1,5 @@
-# Hotel item service API (GraphQL) #
-Live at: https://master-thesis-ci-cd.herokuapp.com/
+# Hotel item service API  (GraphQL) #
+Live at(until 28.Nov.2022. heroku has no more free plans): https://master-thesis-ci-cd.herokuapp.com/
 
 Paste this token to section at bottom of the query window inside "REQUEST HEADERS", and You are ready to use service. 
 
